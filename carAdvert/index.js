@@ -1,3 +1,5 @@
+const CarAdvert = require('./model/carAdvert');
+
 module.exports = {
     getAll: (req, res) => {
         res.send('GET ALL CAR ADVERTS');
