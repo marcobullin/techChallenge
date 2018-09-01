@@ -1,6 +1,8 @@
 const validator = require('validator');
 
 module.exports = {
+    sortFields: ['title', 'fuel', 'price', 'mileage', 'firstRegistration', 'new'],
+
     errorMessages: {
         title: 'Title is required. Please provide a title!',
         fuel: 'Fuel is required. Please choose either "diesel" or "gasoline"!',
@@ -8,7 +10,18 @@ module.exports = {
         condition: 'Car condition is required. Please provide a proper (true, false) car condition!',
         mileageUsedCars: 'Mileage is required for used cars. Please provide a mileage value!',
         mileageNewCars: 'Mileage should be either null or between 0 and 500 for new cars!',
-        date: 'Date of registration is required. Please provide a valid first registration date!'
+        date: 'Date of registration is required. Please provide a valid first registration date!',
+        invalidSortField: 'Invalid sort field. Please provide a valid field for sorting!'
+    },
+
+    validateSortParam: function (sortField) {
+        return new Promise((resolve, reject) => {
+            if (!sortField || this.sortFields.includes(sortField)) {
+                return resolve(true);
+            }
+
+            reject(this.errorMessages.invalidSortField);
+        });
     },
 
     validate: function ({title, fuel, price, isNew, mileage, firstRegistration}) {

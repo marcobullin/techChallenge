@@ -1,9 +1,10 @@
 const CarAdvert = require('./model/carAdvert');
 
-
 module.exports = {
-    getAll: (req, res) => {
-        res.send('GET ALL CAR ADVERTS');
+    getAll: (sortField) => {
+        const sort = sortField ? { [sortField] : 1 } : { _id: 1 };
+
+        return CarAdvert.find({}).sort(sort);
     },
     
     create: ({ title, fuel, price, isNew, mileage, firstRegistration }) => {

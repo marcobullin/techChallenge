@@ -215,3 +215,21 @@ describe('First Registration Validation', () => {
         );
     });
 });
+
+describe('Validation For Sorting Parameter', () => {
+    it('fails for invalid sorting field', () => {
+        expect.assertions(1);
+        
+        carAdvertValidator.validateSortParam('I_AM_INVALID').catch(e => 
+            expect(e).toBe(carAdvertValidator.errorMessages.invalidSortField)
+        );
+    });
+
+    it('succeeds validation for valid sorting field', () => {
+        expect.assertions(1);
+        
+        carAdvertValidator.validateSortParam('title').then(success => 
+            expect(success).toBe(true)
+        );
+    });
+});
