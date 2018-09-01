@@ -9,11 +9,9 @@ const CarAdvertSchema = new Schema({
     required: 'Title for car is required'
   },
   fuel: {
-    type: [{
-        type: String,
-        enum: ['diesel', 'gasoline'],
-        required: 'Fuel for car is required'
-    }]
+    type: String,
+    enum: ['diesel', 'gasoline'],
+    required: 'Fuel for car is required'
   },
   price: {
     type: Number,

@@ -1,23 +1,21 @@
-const CarAdvert = require('./model/carAdvert');
+const carAdvert = require('./carAdvert');
+const carAdvertValidator = require('./carAdvertValidator');
 
 module.exports = {
-    getAll: (req, res) => {
-        res.send('GET ALL CAR ADVERTS');
-    },
+    getAll: carAdvert.getAll,
     
     create: (req, res) => {
-        res.send('CREATE CAR ADVERT');
+        carAdvertValidator.validate(req.body)
+            .then(() => carAdvert.create(req.body)
+                .then(() => res.status(200).json(req.body))
+                .catch(e => res.status(400).json({'DB_ERROR': e.message}))
+            )
+            .catch(e => res.status(400).json({'VALIDATION_ERRRORS': e}));
     },
 
-    get: (req, res) => {
-        res.send('GET CAR ADVERT FOR ID');
-    },
+    get: carAdvert.get,
         
-    update: (req, res) => {
-        res.send('UPDATE CAR ADVERT FOR ID');
-    },
+    update: carAdvert.update,
 
-    remove: (req, res) => {
-        res.send('REMOVE CAR ADVERT FOR ID');
-    }
-}
+    remove: carAdvert.remove
+};

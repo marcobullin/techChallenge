@@ -8,7 +8,7 @@ module.exports = {
         condition: 'Car condition is required. Please provide a proper (true, false) car condition!',
         mileageUsedCars: 'Mileage is required for used cars. Please provide a mileage value!',
         mileageNewCars: 'Mileage should be either null or between 0 and 500 for new cars!',
-        date: 'Date of registration is required. Please provide a valide first registration date!'
+        date: 'Date of registration is required. Please provide a valid first registration date!'
     },
 
     validate: function ({title, fuel, price, isNew, mileage, firstRegistration}) {
