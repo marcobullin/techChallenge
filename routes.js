@@ -3,10 +3,10 @@ module.exports = app => {
 
     app.route('/carAdverts')
         .get(carAdvert.getAll)
-        .put(carAdvert.create);
+        .post(carAdvert.create);
 
     app.route('/carAdverts/:id')
         .get(carAdvert.get)
-        .post(carAdvert.update)
+        .put(carAdvert.update)
         .delete(carAdvert.update);
 }
