@@ -1,0 +1,16 @@
+{
+  "name": "scout24",
+  "version": "1.0.0",
+  "description": "Tech Challenge Scout24",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Marco Bullin",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.16.3",
+    "jest": "^23.5.0",
+    "mongoose": "^5.2.12"
+  }
+}
