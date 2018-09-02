@@ -1,9 +1,9 @@
 
 const mockingoose = require('mockingoose').default;
-const carAdvert = require('./carAdvert');
-const validator = require('./carAdvertValidator');
+const carAdvert = require('../../carAdvert/carAdvert');
+const validator = require('../../carAdvert/carAdvertValidator');
 
-describe('Test Car Advert Persistency Layer', () => {
+describe('Test Car Advert Service', () => {
     it('should fail fetching cars adverts with invalid search field', () => {
         carAdvert.getAll('invalid_search_field').catch(err => {
             expect(err.message).toBe(validator.errorMessages.invalidSortField);

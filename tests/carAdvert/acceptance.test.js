@@ -1,7 +1,7 @@
 const request = require('supertest');
 const app = require('../../app');
 
-describe('Test All Car Advert API', () => {
+describe('Test All Car Advert API endpoints', () => {
     test('It should respond with status 200 for getting car adverts', (done) => {
         request(app).get('/carAdverts').then(response => {
             expect(response.statusCode).toBe(200);
