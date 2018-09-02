@@ -9,11 +9,11 @@ module.exports = {
     
     create: ({ title, fuel, price, isNew, mileage, firstRegistration }) => {
         const carAdvert = new CarAdvert({ 
-            title, 
-            fuel, 
-            price, 
-            new: isNew, 
-            mileage, 
+            title,
+            fuel,
+            price,
+            new: isNew,
+            mileage,
             firstRegistration: firstRegistration ? new Date(firstRegistration): null
         })
 
@@ -24,8 +24,15 @@ module.exports = {
         return CarAdvert.findOne({ _id: id });
     },
         
-    update: (req, res) => {
-        res.send('UPDATE CAR ADVERT FOR ID');
+    update: (id, { title, fuel, price, isNew, mileage, firstRegistration }) => {
+        return CarAdvert.updateOne({ _id: id }, { 
+            title,
+            fuel,
+            price,
+            new: isNew,
+            mileage,
+            firstRegistration: firstRegistration ? new Date(firstRegistration): null
+        });
     },
 
     remove: (req, res) => {
