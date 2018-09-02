@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "jest",
-    "start": "node app.js"
+    "build": "docker build -t scout_app .",
+    "start": "node app.js",
+    "start:docker": "npm run build && docker container run --rm -p 3000:3000 scout_app"
   },
   "author": "Marco Bullin",
   "license": "ISC",
