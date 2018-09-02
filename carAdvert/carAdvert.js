@@ -20,8 +20,8 @@ module.exports = {
         return carAdvert.save();
     },
 
-    get: (req, res) => {
-        res.send('GET CAR ADVERT FOR ID');
+    get: (id) => {
+        return CarAdvert.findOne({ _id: id });
     },
         
     update: (req, res) => {

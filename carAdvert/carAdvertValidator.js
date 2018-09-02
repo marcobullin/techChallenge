@@ -11,7 +11,18 @@ module.exports = {
         mileageUsedCars: 'Mileage is required for used cars. Please provide a mileage value!',
         mileageNewCars: 'Mileage should be either null or between 0 and 500 for new cars!',
         date: 'Date of registration is required. Please provide a valid first registration date!',
-        invalidSortField: 'Invalid sort field. Please provide a valid field for sorting!'
+        invalidSortField: 'Invalid sort field. Please provide a valid field for sorting!',
+        invalidId: 'Invalid id. Please provide a valid car advert id!'
+    },
+
+    validateId: function (id) {
+        return new Promise((resolve, reject) => {
+            if (/^[0-9a-fA-F]{24}$/.test(id) === false) {
+                return reject(this.errorMessages.invalidId);
+            }
+
+            resolve(true);
+        });
     },
 
     validateSortParam: function (sortField) {

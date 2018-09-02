@@ -22,7 +22,14 @@ module.exports = {
             .catch(e => res.status(400).json({'VALIDATION_ERRRORS': e}));
     },
 
-    get: carAdvert.get,
+    get: (req, res) => {
+        carAdvertValidator.validateId(req.params.id)
+            .then(() => carAdvert.get(req.params.id)
+                .then(entry => res.status(200).json(entry))
+                .catch(e => res.status(400).json({'DB_ERROR': e.message}))
+            )
+            .catch(e => res.status(400).json({'VALIDATION_ERRRORS': e}));
+    },
         
     update: carAdvert.update,
 

@@ -233,3 +233,21 @@ describe('Validation For Sorting Parameter', () => {
         );
     });
 });
+
+describe('Validation For Car Advert Id', () => {
+    it('fails for invalid car advert id', () => {
+        expect.assertions(1);
+        
+        carAdvertValidator.validateId('invalud').catch(e => 
+            expect(e).toBe(carAdvertValidator.errorMessages.invalidId)
+        );
+    });
+
+    it('succeeds validation for valid car advert id', () => {
+        expect.assertions(1);
+        
+        carAdvertValidator.validateId('5b8ab44f52150c88f83b010a').then(success => 
+            expect(success).toBe(true)
+        );
+    });
+});
