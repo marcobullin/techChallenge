@@ -7,19 +7,19 @@ This app offers an API to create, read, update and delete car adverts.
 ## Endpoints
 
 ```
-    // get all car adverts
-    (GET) /carAdverts
+    // get all car adverts as array of objects
+    (GET) /carAdverts?sortBy={title, fuel, price, new, mileage, firstRegistration}
 
-    // get single car advert
+    // get single car advert as object
     (GET) /carAdverts/:id
 
-    // create car advert
+    // create car advert and returns the created car advert as object
     (POST) /carAdverts
 
-    // update car advert
+    // update car advert and returns the updated car advert as object
     (PUT) /carAdverts/:id
 
-    // delete car advert
+    // delete car advert and returns the id of the deleted car advert as object
     (DELETE) /carAdverts/:id
 ```
 
