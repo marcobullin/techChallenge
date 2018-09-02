@@ -16,7 +16,7 @@ describe('Title Validation', () => {
         delete data.title;
 
         carAdvertValidator.validate(data).catch(e => 
-            expect(e).toContain(carAdvertValidator.errorMessages.title)
+            expect(e.messages).toContain(carAdvertValidator.errorMessages.title)
         );
     });
 
@@ -36,7 +36,7 @@ describe('Fuel Validation', () => {
         delete data.fuel;
 
         carAdvertValidator.validate(data).catch(e => 
-            expect(e).toContain(carAdvertValidator.errorMessages.fuel)
+            expect(e.messages).toContain(carAdvertValidator.errorMessages.fuel)
         );
     });
 
@@ -47,7 +47,7 @@ describe('Fuel Validation', () => {
         data.fuel = 'rapsoel';
 
         carAdvertValidator.validate(data).catch(e => 
-            expect(e).toContain(carAdvertValidator.errorMessages.fuel)
+            expect(e.messages).toContain(carAdvertValidator.errorMessages.fuel)
         );
     });
 
@@ -80,7 +80,7 @@ describe('Mileage Validation', () => {
         delete data.mileage;
 
         carAdvertValidator.validate(data).catch(e => 
-            expect(e).toContain(carAdvertValidator.errorMessages.mileageUsedCars)
+            expect(e.messages).toContain(carAdvertValidator.errorMessages.mileageUsedCars)
         );
     });
 
@@ -92,7 +92,7 @@ describe('Mileage Validation', () => {
         data.mileage = 200;
 
         carAdvertValidator.validate(data).catch(e => 
-            expect(e).toContain(carAdvertValidator.errorMessages.mileageUsedCars)
+            expect(e.messages).toContain(carAdvertValidator.errorMessages.mileageUsedCars)
         );
     });
 
@@ -103,7 +103,7 @@ describe('Mileage Validation', () => {
         data.mileage = 501;
 
         carAdvertValidator.validate(data).catch(e => 
-            expect(e).toContain(carAdvertValidator.errorMessages.mileageNewCars)
+            expect(e.messages).toContain(carAdvertValidator.errorMessages.mileageNewCars)
         );
     });
 
@@ -139,7 +139,7 @@ describe('First Registration Validation', () => {
         delete data.firstRegistration;
 
         carAdvertValidator.validate(data).catch(e => 
-            expect(e).toContain(carAdvertValidator.errorMessages.date)
+            expect(e.messages).toContain(carAdvertValidator.errorMessages.date)
         );
     });
 
@@ -153,7 +153,7 @@ describe('First Registration Validation', () => {
         data.firstRegistration = futureDate.toString();
 
         carAdvertValidator.validate(data).catch(e => 
-            expect(e).toContain(carAdvertValidator.errorMessages.date)
+            expect(e.messages).toContain(carAdvertValidator.errorMessages.date)
         );
     });
 
@@ -165,7 +165,7 @@ describe('First Registration Validation', () => {
         data.firstRegistration = "1885-10-10";
 
         carAdvertValidator.validate(data).catch(e => 
-            expect(e).toContain(carAdvertValidator.errorMessages.date)
+            expect(e.messages).toContain(carAdvertValidator.errorMessages.date)
         );
     });
 
@@ -177,7 +177,7 @@ describe('First Registration Validation', () => {
         data.firstRegistration = "XXX";
 
         carAdvertValidator.validate(data).catch(e => 
-            expect(e).toContain(carAdvertValidator.errorMessages.date)
+            expect(e.messages).toContain(carAdvertValidator.errorMessages.date)
         );
     });
 
@@ -188,7 +188,7 @@ describe('First Registration Validation', () => {
         data.firstRegistration = "2005-08-22";
 
         carAdvertValidator.validate(data).catch(e => 
-            expect(e).toContain(carAdvertValidator.errorMessages.date)
+            expect(e.messages).toContain(carAdvertValidator.errorMessages.date)
         );
     });
 
@@ -221,7 +221,7 @@ describe('Validation For Sorting Parameter', () => {
         expect.assertions(1);
         
         carAdvertValidator.validateSortParam('I_AM_INVALID').catch(e => 
-            expect(e).toBe(carAdvertValidator.errorMessages.invalidSortField)
+            expect(e.message).toBe(carAdvertValidator.errorMessages.invalidSortField)
         );
     });
 
@@ -239,7 +239,7 @@ describe('Validation For Car Advert Id', () => {
         expect.assertions(1);
         
         carAdvertValidator.validateId('invalud').catch(e => 
-            expect(e).toBe(carAdvertValidator.errorMessages.invalidId)
+            expect(e.message).toBe(carAdvertValidator.errorMessages.invalidId)
         );
     });
 

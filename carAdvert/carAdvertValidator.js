@@ -18,7 +18,10 @@ module.exports = {
     validateId: function (id) {
         return new Promise((resolve, reject) => {
             if (/^[0-9a-fA-F]{24}$/.test(id) === false) {
-                return reject(this.errorMessages.invalidId);
+                return reject({
+                    name: 'CarAdvertValidationError',
+                    message: this.errorMessages.invalidId
+                });
             }
 
             resolve(true);
@@ -31,7 +34,10 @@ module.exports = {
                 return resolve(true);
             }
 
-            reject(this.errorMessages.invalidSortField);
+            reject({
+                name: 'CarAdvertValidationError',
+                message: this.errorMessages.invalidSortField
+            });
         });
     },
 
@@ -75,7 +81,10 @@ module.exports = {
                 return resolve(true);
             }
 
-            reject(errors);
+            reject({
+                name: 'CarAdvertValidationError',
+                messages: errors
+            });
         });
     }
 }
