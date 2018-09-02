@@ -4,17 +4,6 @@
 
 This app offers an API to create, read, update and delete car adverts.
 
-## Requirements
-
-mongodb installed locally on default port (27017)
-[Install MongoDB](https://docs.mongodb.com/manual/installation/)
-
-or with docker
-
-```
-docker container run -d --rm -p 27017:27017 mongo
-```
-
 
 ## Install Application
 
@@ -30,11 +19,15 @@ or
 
 ## How to start?
 
+### Without Docker
+
+IMPORTANT: local mongodb is required on default port 27017 [Install MongoDB](https://docs.mongodb.com/manual/installation/)
+
 ```
     npm start
 ```
 
-or
+### With Docker
 
 ```
     npm run start:docker
