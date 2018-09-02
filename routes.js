@@ -8,5 +8,5 @@ module.exports = app => {
     app.route('/carAdverts/:id')
         .get(carAdvert.get)
         .put(carAdvert.update)
-        .delete(carAdvert.update);
+        .delete(carAdvert.remove);
 }

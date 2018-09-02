@@ -1,7 +1,7 @@
 const CarAdvert = require('./model/carAdvert');
 
 module.exports = {
-    getAll: (sortField) => {
+    getAll: sortField => {
         const sort = sortField ? { [sortField] : 1 } : { _id: 1 };
 
         return CarAdvert.find({}).sort(sort);
@@ -35,7 +35,7 @@ module.exports = {
         });
     },
 
-    remove: (req, res) => {
-        res.send('REMOVE CAR ADVERT FOR ID');
+    remove: id => {
+        return CarAdvert.deleteOne({ _id: id });
     }
 }

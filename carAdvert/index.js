@@ -41,5 +41,12 @@ module.exports = {
             .catch(e => res.status(400).json({'VALIDATION_ERRRORS': e}));
     },
 
-    remove: carAdvert.remove
+    remove: (req, res) => {
+        carAdvertValidator.validateId(req.params.id)
+            .then(() => carAdvert.remove(req.params.id)
+                .then(() => res.status(200).json({ id: req.params.id }))
+                .catch(e => res.status(400).json({'DB_ERROR': e.message}))
+            )
+            .catch(e => res.status(400).json({'VALIDATION_ERRRORS': e}));
+    }
 };
