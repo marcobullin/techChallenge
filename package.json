@@ -8,7 +8,8 @@
     "build": "docker build -t scout_app .",
     "start": "node app.js",
     "start:mongo": "docker container run -d --rm -p 27017:27017 --name mongodb mongo",
-    "start:docker": "npm run build && npm run start:mongo && docker container run -d --rm -p 3000:3000 --link mongodb scout_app"
+    "start:docker": "npm run stop:docker; npm run build && docker container run -d --rm -p 3000:3000 --name scout_app --link mongodb scout_app",
+    "stop:docker" : "docker stop scout_app"
   },
   "author": "Marco Bullin",
   "license": "ISC",

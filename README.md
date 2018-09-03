@@ -30,8 +30,18 @@ IMPORTANT: local mongodb is required on default port 27017 [Install MongoDB](htt
 ### With Docker
 
 ```
+    npm run start:mongo
+```
+
+```
     npm run start:docker
 ```
+
+```
+    // stop the app
+    npm run stop:docker
+```
+
 
 ## Endpoints
 
@@ -79,3 +89,8 @@ IMPORTANT: local mongodb is required on default port 27017 [Install MongoDB](htt
 ```
     npm test
 ```
+
+## Whats next?
+
++ mount application code into container instead of copy for development
++ use node watcher to avoid starting and stoping the application after each change
